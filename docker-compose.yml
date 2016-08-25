@@ -1,7 +1,8 @@
 version: "2"
 services:
   db:
-    build: db
+    # build: db
+    image: thomasf/mattermost-docker:db-latest
     volumes:
       - ./volumes/db/var/lib/postgresql/data:/var/lib/postgresql/data
       - /etc/localtime:/etc/localtime:ro
@@ -12,7 +13,8 @@ services:
     #  - WALE_S3_PREFIX=s3://BUCKET_NAME/PATH
     #  - AWS_REGION=us-east-1
   app:
-    build: app
+    # build: app
+    image: thomasf/mattermost-docker:app-latest
     volumes:
       - ./volumes/app/mattermost/config:/mattermost/config:rw
       - ./volumes/app/mattermost/data:/mattermost/data:rw
